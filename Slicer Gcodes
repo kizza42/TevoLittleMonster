@@ -1,14 +1,6 @@
-START GCODE
 ; Start TLM Start G-Code
-; M280 S10.6 ; Clear BL-Touch errors
 G28 ; Home
 M83 ; Relative Extruder
-; G1 E1 F50 ; Extrude 1 millimetre of filament
-; M280 S3 ; bl-touch extend to probing position light on pin out
-; G1 Z50 F7000 ; Move to 50 off the bed speed 7000
-; G30 Z0.80 ; (Z0.260 default) bl-touch trigger point in mm below nozzle tip - increase will lower nozzle closer to bed
-; M280 S7 ; bl-touch to idle position light off pin in
-; G1 Z30 F4000 ; lift nozzle
 G92 E0.0 ; Set current extruder value to Zero
 G1 X-110 Y-110 Z0.700 F4200.000 ; Prime Blob start position
 G1 F1200 ; Set Prime Blob speed
@@ -16,14 +8,9 @@ G1 X-70 Y-140 E8 ; Prime Blob
 G1 X-0.000 Y-157 E10 ; Prime Blob
 G1 X70 Y-140 E10 ; Prime Blob
 
-
-
-END GCODE
 ; Start TLM End G-Code
 M104 S0 ;  Extruder Off
 M140 S0  ; Bed Off
 G28 ; Home
-M106 S255 ; Cooling Fans On
-; G4 S3 ; Wait 3 secs
 M84 ; Motors Off
 M106 S0 ; Cooling Fans Off

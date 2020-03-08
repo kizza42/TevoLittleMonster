@@ -1,0 +1,8 @@
+1. Run Onboard Calibration
+2. G28 ;Home
+3. Place 0.1mm Measurer in Print Center
+4. G0 Z0 ;Go to Bed Level
+5. Step head to good contact in 0.1mm steps
+6. M306 Z0 ;Set new Bed Level
+7. M500 ;Write to Eprom
+8. G28 ;Home

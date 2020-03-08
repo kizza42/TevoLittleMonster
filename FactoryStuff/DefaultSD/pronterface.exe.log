@@ -1,0 +1,10 @@
+Exception in thread Thread-6:
+Traceback (most recent call last):
+  File "threading.pyc", line 808, in __bootstrap_inner
+  File "threading.pyc", line 761, in run
+  File "printrun\pronterface.pyc", line 1006, in statuschecker
+  File "printrun\pronsole.pyc", line 860, in statuschecker
+  File "printrun\pronterface.pyc", line 998, in statuschecker_inner
+  File "wx\_core.pyc", line 14619, in __getattr__
+PyDeadObjectError: The C++ part of the PronterWindow object has been deleted, attribute access no longer allowed.
+

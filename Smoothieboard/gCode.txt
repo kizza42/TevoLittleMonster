@@ -1,0 +1,65 @@
+### CURA ####
+
+; Start TLM Start G-Code
+M280 S10.6 ; Clear BL-Touch errors
+G28 ; Home
+M83 ; Relative Extruder
+G1 E3 F1000 ; Extrude 3 millimetres of filament
+M280 S3 ; bl-touch extend to probing position light on pin out
+G1 Z50 F4000 ; Move to 50 off the bed speed 4000
+G30 Z0.250 ; (Z0.249 prev 0.2368 default) bl-touch trigger point in mm below nozzle tip - increase will lower nozzle closer to bed
+M280 S7 ; bl-touch to idle position light off pin in
+G1 Z50 ; lift nozzle
+; End TLM Start G-Code
+
+; Start TLM End G-Code
+M104 S0 ;  Extruder Off
+M140 S0  ; Bed Off
+G28 ; Home
+M106 S255 ; Cooling Fans On
+G4 S60 ; Wait 60 secs
+M84 ; Motors Off
+M106 S0 ; Cooling Fans Off
+; End TLM End G-Code
+
+### OCTOPRINT ###
+
+; After Print job is Paused
+M600
+G91 ;switch to relative
+G1 Z50 ; raise 50mm
+
+; Before Print job is resumed
+; Resuming
+{% if pause_temperature[0] and pause_temperature[0]['target'] is not none %}
+M109 S{{ pause_temperature[0]['target'] }}
+{% else %}
+M104 S0
+{% endif %}
+
+{% if pause_temperature['b'] and pause_temperature['b']['target'] is not none %}
+M190 S{{ pause_temperature['b']['target'] }}
+{% else %}
+M140 S0
+{% endif %}
+
+G1 Z-50 ; lower 50mm
+G90 ; switch back to absolute
+M601
+; Resuming
+
+; Before connection to printer is closed
+G28 ; Home
+;disable all heaters
+{% snippet 'disable_hotends' %}
+{% snippet 'disable_bed' %}
+M106 S0 ;disable fan
+G4 S20 ;Wait 20 secs
+M84 ;Motors Off
+
+; After print job is cancelled
+G28 ; Home
+;disable all heaters
+{% snippet 'disable_hotends' %}
+{% snippet 'disable_bed' %}
+M106 S0 ;disable fan

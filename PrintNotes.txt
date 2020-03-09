@@ -1,0 +1,8 @@
+17:50 9/03/2020 PETG Printing TLM Fan Bracket
+Last print had bubbles and zits so I decided to try slowing down print to 40mm/s.
+Also adjusted Cura settings to match recommendation: 
+0.25mm Layer Height
+0.5mm Line Width (Over Extrusion?)
+75% Infill
+Smaller Raft as last print stuck pretty well
+

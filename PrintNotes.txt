@@ -14,3 +14,9 @@ Tried to print a door ninja in PETG and give it some flexible properties:
 1.2mm Walls
 15% Cross Infill
 Result was slightly messy with underextrusion on first layer, need to check layer heights or up temp from 230
+
+21:48 Saturday, 9 May 2020 Mic Stand Clip
+PETG 240C
+0.2mm Layer Height
+Initial Layer Height 0.1
+1.2mm Walls

@@ -20,3 +20,8 @@ PETG 240C
 0.2mm Layer Height
 Initial Layer Height 0.1
 1.2mm Walls
+
+16:31 Monday, 11 May 2020 Mic Stand Clip
+PETG 235C
+Higher Retracts to try cleaning up print quality
+1.4mm retractions 50mm/s
